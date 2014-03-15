@@ -1,0 +1,14 @@
+[
+	{
+	    "id": "edit",
+	    "caption": "Web Components",
+	    "children":
+	    [
+	        {
+	        	"id": "wrap",
+		        "caption": "Preview",
+		        "command": "webcomponents_preview"
+	        }
+	    ]
+	}
+]

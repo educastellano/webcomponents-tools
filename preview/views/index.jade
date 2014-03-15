@@ -1,0 +1,14 @@
+doctype html
+html(lang='en') 
+	head
+		title Web Components Preview 
+		script(src='/platform/platform.js')
+		script(src='/index.js')
+		each val in (components)
+			link(rel='import', ref=path+val+'.html')
+	block content
+		h1 Web Components
+		ul(id='components')
+			each val in (components)
+				li= val
+		div(id='component')
