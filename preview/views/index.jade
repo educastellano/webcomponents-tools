@@ -2,13 +2,19 @@ doctype html
 html(lang='en') 
 	head
 		title Web Components Preview 
-		script(src='/platform/platform.js')
-		script(src='/index.js')
+		if (framework == 'polymer')
+			script(src='/bower_components/polymer/polymer.js')
+		else if (framework == 'x-tags')
+			//- TODO
+		else
+			script(src='/bower_components/polymer-platform/platform.js')
 		each val in (components)
 			link(rel='import', ref=path+val+'.html')
 	block content
 		h1 Web Components
-		ul(id='components')
+		ul(id='components_list')
 			each val in (components)
-				li= val
-		div(id='component')
+				li(id=val)= '<'+val+'>'
+		div(id='content')
+		// app
+		script(src='/index.js')

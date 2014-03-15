@@ -2,6 +2,7 @@ var
 express     = require('express'),
 http        = require('http'),
 fs          = require('fs'),
+exec        = require('child_process').exec,
 app         = express(),
 server      = http.createServer(app),
 port        = 8080,
@@ -18,7 +19,8 @@ app.set('views', __dirname + '/views');
 app.get('/', function (req, resp) {
     resp.render('index', {
         path: folder,
-        components: components
+        components: components,
+        framework: 'platform'
     });
 });
 
@@ -69,3 +71,4 @@ catch (e) {
 //
 server.listen(port);
 console.log('Listening on port ' + port);
+exec('open http://localhost:' + port);
