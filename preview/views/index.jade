@@ -7,9 +7,11 @@ html(lang='en')
 		else if (framework == 'x-tags')
 			//- TODO
 		else
-			script(src='/bower_components/polymer-platform/platform.js')
+			//- script(src='/bower_components/polymer-platform/platform.js')
+			script(src='/polymer/platform-dev/platform.js')
+		//- Imports
 		each val in (components)
-			link(rel='import', ref=path+val+'.html')
+			link(rel='import', href='/components/'+val+'.html')
 	block content
 		h1 Web Components
 		ul(id='components_list')

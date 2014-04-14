@@ -17,12 +17,23 @@
 	// Methods
 	// 
 	var renderComponent = function (name) {
+		var el,
+			_extends = CustomElements.registry[name].extends;
+
 		// clear content
 		while (content.hasChildNodes()) {
 		    content.removeChild(content.lastChild);
 		}
 		// render component
-		var el = document.createElement(name);
+		if (_extends) {
+			el = document.createElement(_extends);
+			el.setAttribute('is', name);
+		}
+		else {
+			el = document.createElement(name);
+		}
+		
+		// el.value = el.innerHTML = name;
 		content.appendChild(el);
 	};
 

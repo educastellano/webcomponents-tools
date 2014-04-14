@@ -14,11 +14,10 @@ app.set('view options', { layout: true });
 app.set('views', __dirname + '/views');
 
 
-// API
+// API  
 //
 app.get('/', function (req, resp) {
     resp.render('index', {
-        path: folder,
         components: components,
         framework: 'platform'
     });
@@ -50,6 +49,7 @@ if (!folder) {
     usage();
     process.exit();
 }
+app.use('/components', express.static(folder));
 
 // read components
 try {
@@ -71,4 +71,4 @@ catch (e) {
 //
 server.listen(port);
 console.log('Listening on port ' + port);
-exec('open http://localhost:' + port);
+// exec('open http://localhost:' + port);
